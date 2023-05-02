@@ -26,13 +26,15 @@ class _OnePageAndroidState extends State<OnePageAndroid> {
       appBar: null,
       body: ValueListenableBuilder<List<PostModel>>(
         valueListenable: _controller.posts, 
-        builder: (_, posts, __) => ListView.builder(
+        builder: (_, posts, __) => ListView.separated(
           itemCount: posts.length,
           itemBuilder: (context, index) => ListTile(
             title: Text(posts[index].title,softWrap: true, textAlign: TextAlign.justify,),
             subtitle: Text("Código: ${posts[index].id.toString()}"),
-          )
-        ),),
+          ),
+          separatorBuilder: (_,__) => const Divider(),
+        ),
+      ),
     );
   }
 }

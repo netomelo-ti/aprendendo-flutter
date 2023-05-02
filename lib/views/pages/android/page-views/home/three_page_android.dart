@@ -25,13 +25,15 @@ class _ThreePageAndroidState extends State<ThreePageAndroid> {
       appBar: null,
       body: ValueListenableBuilder<List<TodoModel>>(
         valueListenable: _controller.todos, 
-        builder: (_, todos, __) => ListView.builder(
+        builder: (_, todos, __) => ListView.separated(
           itemCount: todos.length,
           itemBuilder: (context, index) => ListTile(
             title: Text(todos[index].title,softWrap: true, textAlign: TextAlign.justify,),
             subtitle: Text("Completed: ${todos[index].completed.toString()}"),
-          )
-        ),),
+          ),
+          separatorBuilder: (_,__) => const Divider(),
+        ),
+      ),
     );
   }
 }

@@ -25,13 +25,15 @@ class _TwoPageAndroidState extends State<TwoPageAndroid> {
       appBar: null,
       body: ValueListenableBuilder<List<CommentModel>>(
         valueListenable: _controller.comments, 
-        builder: (_, comments, __) => ListView.builder(
+        builder: (_, comments, __) => ListView.separated(
           itemCount: comments.length,
           itemBuilder: (context, index) => ListTile(
             title: Text(comments[index].name,softWrap: true, textAlign: TextAlign.justify,),
             subtitle: Text("Email: ${comments[index].email}"),
-          )
-        ),),
+          ),
+          separatorBuilder: (_,__) => const Divider(),
+        ),
+      ),
     );
   }
 }
