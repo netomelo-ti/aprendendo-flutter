@@ -1,5 +1,5 @@
 import 'package:aprendendo_flutter/models/post_model.dart';
-import 'package:aprendendo_flutter/repositories/post_repository_mock.dart';
+import 'package:aprendendo_flutter/repositories/post_repository_imp.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../../controllers/post_controller.dart';
@@ -12,7 +12,7 @@ class OnePageAndroid extends StatefulWidget {
 }
 
 class _OnePageAndroidState extends State<OnePageAndroid> {
-  final PostController _controller = PostController(PostRepositoryMock());
+  final PostController _controller = PostController(PostRepositoryImp());
 
   @override
   void initState(){
